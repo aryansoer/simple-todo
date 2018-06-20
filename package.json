@@ -1,0 +1,23 @@
+{
+  "name": "simple-todo",
+  "version": "1.0.0",
+  "description": "Simple Todo Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isoev/simple-todo.git"
+  },
+  "keywords": [
+    "todo",
+    "typescript"
+  ],
+  "author": "Behruz Isoev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isoev/simple-todo/issues"
+  },
+  "homepage": "https://github.com/isoev/simple-todo#readme"
+}
