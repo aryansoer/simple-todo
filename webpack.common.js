@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const METADATA = {
     TITLE: 'Simple TODO'
-}
+};
 
 module.exports = function(options) {
 
@@ -16,12 +16,9 @@ module.exports = function(options) {
 
     return {
         entry: {
-            app: './src/app.js'
+            app: './src/app.ts'
         },
         plugins: [
-            new webpack.ProvidePlugin({
-                _: 'lodash'
-            }),
             new CleanWebpackPlugin(['dist']),
             new CommonsChunkPlugin({
                 name: 'vendor',
@@ -44,30 +41,47 @@ module.exports = function(options) {
             filename: '[name].bundle.js',
             path: path.resolve(__dirname, 'dist')
         },
+        resolve: {
+            extensions: [ '.ts', '.tsx', '.js' ]
+        },
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    enforce: 'pre',
+                    use: [
+                        {
+                            loader: 'tslint-loader',
+                            options: {
+                                configFile: './tslint.json',
+                                typeCheck: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/
+                },
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: isProd
                         ? ExtractTextPlugin.extract(
                             {
                                 fallback: 'style-loader',
-                                use: ['css-loader', 'sass-loader']
+                                use: [ 'css-loader', 'sass-loader' ]
                             }
                         )
-                        : ['style-loader', 'css-loader', 'sass-loader']
+                        : [ 'style-loader', 'css-loader', 'sass-loader' ]
                 },
                 {
                     test: /\.(png|svg|jpg|gif)$/,
-                    use: [
-                        'file-loader'
-                    ]
+                    use: [ 'file-loader' ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|otf)$/,
-                    use: [
-                        'file-loader'
-                    ]
+                    use: [ 'file-loader' ]
                 }
             ]
         }
