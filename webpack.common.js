@@ -7,7 +7,7 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const METADATA = {
-    TITLE: 'Simple TODO'
+    TITLE: 'Simple Todo'
 };
 
 module.exports = function(options) {
@@ -34,7 +34,8 @@ module.exports = function(options) {
                 template: './src/index.html'
             }),
             new webpack.DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify(options.env)
+                'process.env.NODE_ENV': JSON.stringify(options.env),
+                'process.env.APP_TITLE': JSON.stringify(METADATA.TITLE)
             })
         ],
         output: {
