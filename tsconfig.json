@@ -1,24 +1,15 @@
 {
   "compileOnSave": false,
-  "buildOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
     "alwaysStrict": true,
-    "noUnusedLocals": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "removeComments": true,
-    "module": "es6",
+    "moduleResolution": "node",
     "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "types" : [
-      "node",
-      "lodash"
     ]
   },
   "include": [
