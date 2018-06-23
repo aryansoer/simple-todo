@@ -4,7 +4,7 @@
   "description": "Simple Todo Manager",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "start": "webpack-dev-server --progress --open --config webpack.dev.js",
     "build": "webpack --progress --config webpack.prod.js",
     "tslint": "tslint 'src/**/*.ts?(x)' --project tsconfig.json --config tslint.json"
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/isoev/simple-todo#readme",
   "devDependencies": {
+    "@types/jasmine": "^2.8.8",
     "@types/lodash": "^4.14.110",
     "@types/node": "^10.3.4",
     "clean-webpack-plugin": "^0.1.19",
@@ -31,10 +32,12 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "jasmine": "^3.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "ts-loader": "^3.5.0",
+    "ts-node": "^7.0.0",
     "tslint": "^4.5.1",
     "tslint-loader": "^3.6.0",
     "typescript": "^2.9.2",
