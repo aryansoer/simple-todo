@@ -6,6 +6,7 @@
     "alwaysStrict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
     "typeRoots": [

@@ -1,4 +1,4 @@
-import { ITodo, Todo } from "./todo";
+import { ITodo, Todo } from "./index";
 
 export class TodoFactory {
     public static makeTodo(title: string, date?: Date): ITodo {
